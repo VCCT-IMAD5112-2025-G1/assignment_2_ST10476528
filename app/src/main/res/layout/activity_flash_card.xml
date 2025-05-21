@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FlashCardActivity">
+
+    <Button
+        android:id="@+id/TrueButton"
+        android:layout_width="98dp"
+        android:layout_height="75dp"
+        android:layout_marginBottom="236dp"
+        android:text="True"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.182"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/FalseButton"
+        android:layout_width="99dp"
+        android:layout_height="72dp"
+        android:layout_marginBottom="236dp"
+        android:text="False"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.63"
+        app:layout_constraintStart_toEndOf="@+id/TrueButton" />
+
+    <Button
+        android:id="@+id/NextButton"
+        android:layout_width="100dp"
+        android:layout_height="72dp"
+        android:layout_marginBottom="148dp"
+        android:text="Next ->"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/QuestionView"
+        android:layout_width="411dp"
+        android:layout_height="226dp"
+        android:layout_marginTop="25dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
