@@ -22,24 +22,27 @@ class FlashCardActivity : AppCompatActivity() {
     )
 
     var answers = booleanArrayOf(true, true, false, false, true)
+    val userAnswer = BooleanArray(questions.size) {false}
+
+    var score = 0
+    var total = 0
+    var currentIndex = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_flash_card)
 
-        val userAnswer = BooleanArray(questions.size) {false}
 
-        var score = 0
-        var total = 0
-        var currentIndex = 0
+
+
 
         val TrueButton = findViewById<Button>(R.id.TrueButton)
         val FalseButton = findViewById<Button>(R.id.FalseButton)
         val QuestionView = findViewById<TextView>(R.id.QuestionView)
         val NextButton = findViewById<Button>(R.id.NextButton)
 
-        fun showQuestion(currentIndex)
+         showQuestion()
 
         TrueButton.setOnClickListener() {
             checkAnswer(true)
@@ -62,48 +65,47 @@ class FlashCardActivity : AppCompatActivity() {
             intent.putExtra("total", questions.size)
             intent.putExtra("Questions",questions)
             intent.putExtra("Answer", answers)
-            intent.putExtra("userActivity", userAnswer)
+            intent.putExtra("userActivity",userAnswer)
             startActivity(intent)
 
             finish()
         }
 
-         fun showQuestion () {
-            val NextButton = findViewById<Button>(R.id.NextButton)
-            val TrueButton = findViewById<Button>(R.id.TrueButton)
-            val FalseButton = findViewById<Button>(R.id.FalseButton)
-            val QuestionView = findViewById<TextView>(R.id.QuestionView)
 
-            QuestionView.text = questions(currentIndex)
-
-            TrueButton.isEnabled = true
-            FalseButton.isEnabled = false
-
-            NextButton.isEnabled = false
         }
 
-         fun checkAnswer(studentAnswer:Boolean) {
-            val TrueButton = findViewById<Button>(R.id.TrueButton)
-            val FalseButton = findViewById<Button>(R.id.FalseButton)
-            val NextButton = findViewById<Button>(R.id.NextButton)
+     private fun showQuestion () {
+        val NextButton = findViewById<Button>(R.id.NextButton)
+        val TrueButton = findViewById<Button>(R.id.TrueButton)
+        val FalseButton = findViewById<Button>(R.id.FalseButton)
+        val QuestionView = findViewById<TextView>(R.id.QuestionView)
 
-            userAnswer[currentIndex] = studentAnswer
-            if (studentAnswer==answers[currentIndex]) {
+        QuestionView.text = questions[currentIndex]
 
-                Toast.makeText(this,@FlashCardActivity, "The answer is correct", Toast.LENGTH_LONG).show()
-                score++
-            }else{
-                Toast.makeText(this,@FlashCardActivity, "The answer is incorrect", Toast.LENGTH_LONG).show()
-            }
-            TrueButton.isEnabled = true
-            FalseButton.isEnabled = false
-            NextButton.isEnabled = false
-        }
+        TrueButton.isEnabled = true
+        FalseButton.isEnabled = false
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
+        NextButton.isEnabled = false
     }
-}
+
+     private fun checkAnswer(studentAnswer:Boolean) {
+        val TrueButton = findViewById<Button>(R.id.TrueButton)
+        val FalseButton = findViewById<Button>(R.id.FalseButton)
+        val NextButton = findViewById<Button>(R.id.NextButton)
+
+        userAnswer[currentIndex] = studentAnswer
+        if (studentAnswer==answers[currentIndex]) {
+
+            Toast.makeText(this@FlashCardActivity,"The answer is correct", Toast.LENGTH_LONG).show()
+            score++
+        }
+        else{
+            Toast.makeText(this@FlashCardActivity, "The answer is incorrect", Toast.LENGTH_LONG).show()
+        }
+        TrueButton.isEnabled = true
+        FalseButton.isEnabled = false
+        NextButton.isEnabled = false
+    }
+
+
+    }
