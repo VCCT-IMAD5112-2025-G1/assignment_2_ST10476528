@@ -7,105 +7,88 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 
 class FlashCardActivity : AppCompatActivity() {
 
-    //Defining the array which will store the questions
-    var questions = arrayOf(
-        "Question 1:"+"The world cup was hosted in Qatar in 2022",
-        "Question 2:"+"The US dollar is more valuable than the South Africa Zar",
-        "Question 3:"+"A person has 4 lungs",
-        "Quesstion 4:"+"A person can breathe under water",
-        "Question 5:"+"There is more ants than there is human"
+    // Array of questions
+    private val questions = arrayOf(
+        "Question 1:" +" The world cup was hosted in Qatar in 2022",
+        "Question 2:\" +\" The US dollar is more valuable than the South African ZAR",
+        "Question 3: A person has 4 lungs",
+        "Question 4: A person can breathe under water",
+        "Question 5: There are more ants than there are humans"
     )
 
-    var answers = booleanArrayOf(true, true, false, false, true)
-    val userAnswer = BooleanArray(questions.size) {false}
+    private val answers = booleanArrayOf(true, true, false, false, true)
+    private val userAnswers = BooleanArray(questions.size)
 
-    var score = 0
-    var total = 0
-    var currentIndex = 0
+    private var score = 0
+    private var currentIndex = 0
+
+    private lateinit var questionView: TextView
+    private lateinit var trueButton: Button
+    private lateinit var falseButton: Button
+    private lateinit var nextButton: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_flash_card)
 
+        // Initialize UI components
+        trueButton = findViewById(R.id.trueButton)
+        falseButton = findViewById(R.id.falseButton)
+        nextButton = findViewById(R.id.nextButton)
+        questionView = findViewById(R.id.questionView)
 
+        showQuestion()
 
-
-
-        val TrueButton = findViewById<Button>(R.id.TrueButton)
-        val FalseButton = findViewById<Button>(R.id.FalseButton)
-        val QuestionView = findViewById<TextView>(R.id.QuestionView)
-        val NextButton = findViewById<Button>(R.id.NextButton)
-
-         showQuestion()
-
-        TrueButton.setOnClickListener() {
+        trueButton.setOnClickListener {
             checkAnswer(true)
         }
 
-        FalseButton.setOnClickListener() {
+        falseButton.setOnClickListener {
             checkAnswer(false)
         }
 
-        NextButton.setOnClickListener() {
+        nextButton.setOnClickListener {
             currentIndex++
+            if (currentIndex < questions.size) {
+                showQuestion()
+            } else {
+                // End of quiz, go to score page
+                val intent = Intent(this, ScorePageActivity::class.java).apply {
+                    putExtra("score", score)
+                    putExtra("total", questions.size)
+                    putExtra("Questions", questions)
+                    putExtra("Answer", answers)
+                    putExtra("userActivity", userAnswers)
+                }
+                startActivity(intent)
+                finish()
+            }
         }
-
-        if (currentIndex < questions.size) {
-            showQuestion()
-        } else{
-
-        val intent = Intent(this, ScorePageActivity::class.java)
-            intent.putExtra("score",score)
-            intent.putExtra("total", questions.size)
-            intent.putExtra("Questions",questions)
-            intent.putExtra("Answer", answers)
-            intent.putExtra("userActivity",userAnswer)
-            startActivity(intent)
-
-            finish()
-        }
-
-
-        }
-
-     private fun showQuestion () {
-        val NextButton = findViewById<Button>(R.id.NextButton)
-        val TrueButton = findViewById<Button>(R.id.TrueButton)
-        val FalseButton = findViewById<Button>(R.id.FalseButton)
-        val QuestionView = findViewById<TextView>(R.id.QuestionView)
-
-        QuestionView.text = questions[currentIndex]
-
-        TrueButton.isEnabled = true
-        FalseButton.isEnabled = false
-
-        NextButton.isEnabled = false
     }
 
-     private fun checkAnswer(studentAnswer:Boolean) {
-        val TrueButton = findViewById<Button>(R.id.TrueButton)
-        val FalseButton = findViewById<Button>(R.id.FalseButton)
-        val NextButton = findViewById<Button>(R.id.NextButton)
+    private fun showQuestion() {
+        questionView.text = questions[currentIndex]
+        trueButton.isEnabled = true
+        falseButton.isEnabled = true
+        nextButton.isEnabled = false
+    }
 
-        userAnswer[currentIndex] = studentAnswer
-        if (studentAnswer==answers[currentIndex]) {
+    private fun checkAnswer(studentAnswer: Boolean) {
+        trueButton.isEnabled = false
+        falseButton.isEnabled = false
+        nextButton.isEnabled = true
 
-            Toast.makeText(this@FlashCardActivity,"The answer is correct", Toast.LENGTH_LONG).show()
+        userAnswers[currentIndex] = studentAnswer
+
+        if (studentAnswer == answers[currentIndex]) {
+            Toast.makeText(this, "The answer is correct", Toast.LENGTH_SHORT).show()
             score++
+        } else {
+            Toast.makeText(this, "The answer is incorrect", Toast.LENGTH_SHORT).show()
         }
-        else{
-            Toast.makeText(this@FlashCardActivity, "The answer is incorrect", Toast.LENGTH_LONG).show()
-        }
-        TrueButton.isEnabled = true
-        FalseButton.isEnabled = false
-        NextButton.isEnabled = false
     }
-
-
-    }
+}

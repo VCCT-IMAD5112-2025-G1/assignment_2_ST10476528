@@ -5,53 +5,112 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/study"
     tools:context=".ScorePageActivity">
 
     <Button
-        android:id="@+id/ScoreButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        tools:layout_editor_absoluteX="70dp"
-        tools:layout_editor_absoluteY="462dp" />
-
-    <Button
-        android:id="@+id/exitButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        tools:layout_editor_absoluteX="250dp"
-        tools:layout_editor_absoluteY="462dp" />
+        android:id="@+id/RevButton"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="123dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginBottom="28dp"
+        android:background="#686464"
+        android:text="Review"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/FeedView"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/ScoreView"
         android:layout_width="351dp"
         android:layout_height="130dp"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="28dp"
-        tools:layout_editor_absoluteY="27dp" />
-
-    <Button
-        android:id="@+id/RevButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        tools:layout_editor_absoluteX="160dp"
-        tools:layout_editor_absoluteY="533dp" />
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="27dp"
+        android:layout_marginEnd="32dp"
+        android:background="#AAEFE6E6"
+        android:hint="your score will be displayed here ->"
+        android:textColor="#262323"
+        android:textColorHighlight="#2E2929"
+        android:textColorHint="#2E2929"
+        android:textColorLink="#2F2D2D"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/FeedView"
-        android:layout_width="353dp"
-        android:layout_height="109dp"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="28dp"
-        tools:layout_editor_absoluteY="311dp" />
+        android:layout_width="197dp"
+        android:layout_height="57dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="30dp"
+        android:background="#AAEFE6E6"
+        android:hint="Your Feedback based on the how you answered the questions will be displayed here -> "
+        android:textColor="#262323"
+        android:textColorHighlight="#262323"
+        android:textColorHint="#2E2929"
+        android:textColorLink="#262323"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/ScoreButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ReviewTextView" />
 
     <TextView
         android:id="@+id/ReviewTextView"
-        android:layout_width="351dp"
-        android:layout_height="119dp"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="28dp"
-        tools:layout_editor_absoluteY="181dp" />
+        android:layout_width="343dp"
+        android:layout_height="185dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="32dp"
+        android:background="#ABEFE6E6"
+        android:hint="Question Review will be displaye here -> "
+        android:textColor="#262323"
+        android:textColorHighlight="#262323"
+        android:textColorHint="#2E2929"
+        android:textColorLink="#262323"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ScoreView" />
+
+    <Button
+        android:id="@+id/exitButton"
+        android:layout_width="0dp"
+        android:layout_height="61dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="32dp"
+        android:background="#686464"
+        android:text="Exit"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/RevButton" />
+
+    <Button
+        android:id="@+id/ScoreButton"
+        android:layout_width="0dp"
+        android:layout_height="57dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="46dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="28dp"
+        android:background="#524F4F"
+        android:text="Score"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/RevButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/FeedView" />
 </androidx.constraintlayout.widget.ConstraintLayout>

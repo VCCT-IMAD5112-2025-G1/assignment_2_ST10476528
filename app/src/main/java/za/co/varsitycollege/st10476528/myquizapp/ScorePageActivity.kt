@@ -7,8 +7,6 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.google.android.material.color.utilities.Score
-import org.w3c.dom.Text
 
 class ScorePageActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -16,41 +14,53 @@ class ScorePageActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_score_page)
 
-        val score = intent.getIntExtra("score",0)
-        val total = intent.getIntExtra("total",0)
+        val score = intent.getIntExtra("score", 0)
+        val total = intent.getIntExtra("total", 0)
         val questions = intent.getStringArrayExtra("Questions")
         val answers = intent.getBooleanArrayExtra("Answer")
-        val userAnswer = intent.getBooleanArrayExtra("userAnswer")
+        val userAnswers = intent.getBooleanArrayExtra("userActivity") // Corrected key name
 
-        val ReviewTextView = findViewById<TextView>(R.id.ReviewTextView)
-        val ScoreView = findViewById<TextView>(R.id.ScoreView)
-        val FeedView = findViewById<TextView>(R.id.FeedView)
-        val exitButton = findViewById<Button>(R.id.exitButton)
-        val RevButton = findViewById<Button>(R.id.RevButton)
-        val ScoreButton = findViewById<Button>(R.id.ScoreButton)
+        val reviewTextView = findViewById<TextView>(R.id.ReviewTextView)
+        val scoreView = findViewById<TextView>(R.id.ScoreView)
+        val feedbackView = findViewById<TextView>(R.id.FeedView)
+        val exitButton = findViewById<Button>(R.id.exitButton) // Make sure this ID exists
+        val reviewButton = findViewById<Button>(R.id.RevButton)
+        val scoreButton = findViewById<Button>(R.id.ScoreButton)
 
-        ScoreView.text = "Score: $score out of $total"
+        scoreView.text = "Score: $score out of $total"
 
-        if (score >= 3) {
-            FeedView.text = "Great Job!"
-        }else{
-            FeedView.text = "Keep practising"
+        feedbackView.text = if (score >= 3) {
+            "Great Job!"
+        } else {
+            "Keep practicing"
         }
 
         exitButton.setOnClickListener {
-            finishActivity()
+            finish()
         }
 
-        RevButton.setOnClickListener {
-            if (questions!= null && answers!= null && userAnswer!= null){
-                val ReviewTextView=StringBuilder()
-                for (i in questions.indices)
+        reviewButton.setOnClickListener {
+            if (questions != null && answers != null && userAnswers != null) {
+                val reviewText = StringBuilder()
+                for (i in questions.indices) {
+                    val q = questions[i]
+                    val correct = answers[i]
+                    val user = userAnswers[i]
+                    val result = if (user == correct) "Correct" else "Incorrect"
+                    reviewText.append("$q\nYour Answer: $user | Correct Answer: $correct -> $result\n\n")
+                }
+                reviewTextView.text = reviewText.toString()
+            } else {
+                reviewTextView.text = "No review data available."
             }
         }
+
+        // Recommended: Handle insets properly in onCreate
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            v.setPadding(systemBars.left, systemBars.top,systemBars.right, systemBars.bottom)
             insets
         }
     }
 }
+

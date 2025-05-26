@@ -5,10 +5,11 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/study"
     tools:context=".FlashCardActivity">
 
     <Button
-        android:id="@+id/TrueButton"
+        android:id="@+id/trueButton"
         android:layout_width="98dp"
         android:layout_height="75dp"
         android:layout_marginBottom="236dp"
@@ -19,7 +20,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/FalseButton"
+        android:id="@+id/falseButton"
         android:layout_width="99dp"
         android:layout_height="72dp"
         android:layout_marginBottom="236dp"
@@ -27,10 +28,10 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.63"
-        app:layout_constraintStart_toEndOf="@+id/TrueButton" />
+        app:layout_constraintStart_toEndOf="@+id/trueButton" />
 
     <Button
-        android:id="@+id/NextButton"
+        android:id="@+id/nextButton"
         android:layout_width="100dp"
         android:layout_height="72dp"
         android:layout_marginBottom="148dp"
@@ -41,11 +42,17 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/QuestionView"
+        android:id="@+id/questionView"
         android:layout_width="411dp"
         android:layout_height="226dp"
         android:layout_marginTop="25dp"
-        android:text="TextView"
+        android:background="#A0FAF7F7"
+        android:text="Cuecard"
+        android:textColor="#262323"
+        android:textColorHighlight="#262323"
+        android:textColorHint="#262323"
+        android:textColorLink="#262323"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

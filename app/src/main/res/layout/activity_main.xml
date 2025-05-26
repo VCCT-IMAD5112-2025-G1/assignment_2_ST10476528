@@ -5,16 +5,25 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/study"
     tools:context=".MainActivity">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:layout_width="359dp"
+        android:layout_height="219dp"
+        android:layout_marginStart="16dp"
+        android:rotation="-1"
+        android:rotationY="-4"
+        android:text="Welcome to my study app, where there are preloaded questions to test your knowlegde then when you done you'll receive a score based on how you did.  "
+        android:textColor="#EFE7E7"
+        android:textColorLink="#BAADAD"
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.692"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.031" />
 
     <Button
         android:id="@+id/startButton"
@@ -22,10 +31,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="160dp"
         android:layout_marginEnd="161dp"
-        android:layout_marginBottom="242dp"
+        android:layout_marginBottom="308dp"
+        android:background="#686464"
         android:text="Start ->"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
