@@ -91,12 +91,10 @@ A timer for every question; a variety of question formats (such as multiple choi
 ![Screenshot 2025-05-26 151321](https://github.com/user-attachments/assets/ff151ce1-9da6-432c-9fec-41cc2d840c3b)
 
 ![Screenshot 2025-05-26 151431](https://github.com/user-attachments/assets/e13ca8d5-a0da-4ccc-b2a6-6b02a8caf688)
-
-
-
-
 ---
 
+##YouTube link
+https://youtu.be/UwDeoqdqBHs?si=iZPoyvrJql2OO4Z6
 
-
----
+##AI Disclosure
+chatgpt was used for structuring the readme, code and in the making of the report 
