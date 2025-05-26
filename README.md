@@ -86,6 +86,14 @@ This project can be further developed by including:
 A timer for every question; a variety of question formats (such as multiple choice); dynamic question loading from an API; varying levels of difficulty; and score tracking across several quiz attempts
 
 ## 📸 screenshots
+![Screenshot 2025-05-26 151234](https://github.com/user-attachments/assets/95cf49e6-3ee3-4fda-b0e9-65faf77a3edf)
+
+![Screenshot 2025-05-26 151321](https://github.com/user-attachments/assets/ff151ce1-9da6-432c-9fec-41cc2d840c3b)
+
+![Screenshot 2025-05-26 151431](https://github.com/user-attachments/assets/e13ca8d5-a0da-4ccc-b2a6-6b02a8caf688)
+
+
+
 
 ---
 
