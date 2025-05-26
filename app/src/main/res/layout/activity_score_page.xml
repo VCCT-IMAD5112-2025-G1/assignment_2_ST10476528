@@ -27,8 +27,8 @@
 
     <TextView
         android:id="@+id/ScoreView"
-        android:layout_width="351dp"
-        android:layout_height="130dp"
+        android:layout_width="355dp"
+        android:layout_height="84dp"
         android:layout_marginStart="28dp"
         android:layout_marginTop="27dp"
         android:layout_marginEnd="32dp"
@@ -64,8 +64,8 @@
 
     <TextView
         android:id="@+id/ReviewTextView"
-        android:layout_width="343dp"
-        android:layout_height="185dp"
+        android:layout_width="344dp"
+        android:layout_height="221dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="32dp"
