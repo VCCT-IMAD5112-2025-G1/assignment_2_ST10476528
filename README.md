@@ -11,7 +11,7 @@ From beginning to end, this app provides a simple quiz experience. You start on 
 
 The app is ideal for:
 
-Demonstrating fundamental front-end development concepts; practicing general knowledge or subject-specific topics; and learning how to control user interaction and UI state through a straightforward quiz format
+Demonstrating fundamental front-end development concepts, practicing general knowledge or subject-specific topics, and learning how to control user interaction and UI state through a straightforward quiz format
 
 ---
 
@@ -19,7 +19,7 @@ Demonstrating fundamental front-end development concepts; practicing general kno
 
 ### 1. **Preface Page**
 
-* This welcome screen provides users with a brief overview of the app. * It provides an explanation of the quiz's purpose and expectations. When the **Start** button is pressed, the user is directed to the quiz.
+* This welcome screen provides users with a brief overview of the app. * It explains the quiz's purpose and expectations. When the **Start** button is pressed, the user is directed to the quiz.
 
 ### 2. The Quiz Page
 
@@ -31,7 +31,7 @@ Demonstrating fundamental front-end development concepts; practicing general kno
 
 ### 3. The score page
 
-* Users are presented with their **total score** at the conclusion of the test.
+* Users are presented with their **total score** after the test.
 * There is a **review section** beneath the score that displays:
 
   * Every query * The user's response
@@ -49,13 +49,13 @@ Start Quiz → Answer Questions → Score Page → Exit → Return to Intro <``
 
 ## Characteristics
 
-* An easy-to-use interface with clear navigation * Instant feedback on responses * An automated score calculation * The ability to retake the test after finishing it straightforward and simple to modify or expand
+* An easy-to-use interface with clear navigation * Instant feedback on responses * An automated score calculation * The ability to retake the test after finishing it, straightforward and simple to modify or expand
 
 ---
 
 ## Made With
 
-The structure and layout are provided by **HTML**; styling and responsive design are provided by **CSS**; and all interactive functionality and logic are provided by **JavaScript**.
+The structure and layout are provided by **Android Studio**; styling and responsive design are provided by **Android Studio**; and all interactive functionality and logic are provided by **Kotlin**.
 
 ---
 
